@@ -16,9 +16,6 @@ col_title, col_logo = st.columns([3, 1])
 with col_title:
     # Εδώ μπαίνει ο τίτλος ανάλογα με τη σελίδα που βρίσκεσαι
     pass 
-with col_logo:
-    if os.path.exists("logo.png"):
-        st.image("logo.png", width=180)
 
 st.markdown(f"""
     <style>
@@ -1315,15 +1312,10 @@ if menu == "Προσωπικά Στοιχεία":
         st.session_state.client_data['first_name'] = st.text_input("Όνομα:", value=st.session_state.client_data.get('first_name', ''))
         st.session_state.client_data['last_name'] = st.text_input("Επώνυμο:", value=st.session_state.client_data.get('last_name', ''))
         st.session_state.client_data['fullname'] = f"{st.session_state.client_data['first_name']} {st.session_state.client_data['last_name']}".strip()
-        st.session_state.client_data['father_name'] = st.text_input("Πατρώνυμο:", value=st.session_state.client_data.get('father_name', ''))
-        st.session_state.client_data['dob'] = st.date_input("Ημ/νία Γέννησης:", min_value=datetime.date(1940, 1, 1), value=st.session_state.client_data.get('dob', datetime.date(1990, 1, 1)))
-        st.session_state.client_data['afm'] = st.text_input("ΑΦΜ:", value=st.session_state.client_data.get('afm', ''))
+
+
     with colB:
-        st.session_state.client_data['adt'] = st.text_input("ΑΔΤ:", value=st.session_state.client_data.get('adt', ''))
-        st.session_state.client_data['doy'] = st.text_input("ΔΟΥ:", value=st.session_state.client_data.get('doy', ''))
-        st.session_state.client_data['phone'] = st.text_input("Τηλέφωνο Επικοινωνίας:", value=st.session_state.client_data.get('phone', ''))
-        st.session_state.client_data['email'] = st.text_input("Email:", value=st.session_state.client_data.get('email', ''))
-        st.session_state.client_data['address'] = st.text_input("Διεύθυνση Κατοικίας:", value=st.session_state.client_data.get('address', ''))
+        st.session_state.client_data['dob'] = st.date_input("Ημ/νία Γέννησης:", min_value=datetime.date(1940, 1, 1), value=st.session_state.client_data.get('dob', datetime.date(1990, 1, 1)))
         st.session_state.client_data['job'] = st.text_input("Επάγγελμα:", value=st.session_state.client_data.get('job', ''))
     
     c_stat1, c_stat2 = st.columns(2)
